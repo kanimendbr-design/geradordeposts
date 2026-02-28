@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerador de Post - Jogos do Dia</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel form-panel">
+        <h1>Gerador de Post de Apostas</h1>
+        <p class="subtitle">Selecione os jogos, informe as odds e gere a imagem pronta para postar.</p>
+
+        <div class="field-grid">
+          <label>
+            Nome da campanha
+            <input id="campaignTitle" type="text" value="Jogos do Dia" />
+          </label>
+
+          <label>
+            Competição
+            <input id="competition" type="text" value="Copa da Liga Inglesa" />
+          </label>
+
+          <label>
+            Data
+            <input id="matchDate" type="date" />
+          </label>
+
+          <label>
+            Cor principal
+            <input id="themeColor" type="color" value="#14d88a" />
+          </label>
+
+          <label>
+            Casa de aposta
+            <input id="brandName" type="text" value="bet sudoeste" />
+          </label>
+
+          <label>
+            Mascote (PNG/JPG)
+            <input id="mascotInput" type="file" accept="image/png,image/jpeg,image/webp" />
+          </label>
+        </div>
+
+        <div class="matches-header">
+          <h2>Jogos</h2>
+          <button id="addMatch" type="button">+ Adicionar jogo</button>
+        </div>
+        <div id="matchesList" class="matches-list"></div>
+
+        <div class="actions">
+          <button id="generateBtn" type="button" class="primary">Gerar imagem</button>
+          <button id="downloadBtn" type="button" disabled>Baixar PNG</button>
+        </div>
+      </section>
+
+      <section class="panel preview-panel">
+        <h2>Prévia</h2>
+        <canvas id="postCanvas" width="1080" height="1350" aria-label="Prévia do post"></canvas>
+      </section>
+    </main>
+
+    <template id="matchTemplate">
+      <article class="match-item">
+        <label>
+          Jogo
+          <input data-field="title" type="text" placeholder="Ex: Leeds x Barnsley" />
+        </label>
+        <label>
+          Horário
+          <input data-field="time" type="text" placeholder="15h45" />
+        </label>
+        <label>
+          Odd
+          <input data-field="odd" type="text" placeholder="2.10" />
+        </label>
+        <button data-action="remove" type="button" class="remove">Remover</button>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
